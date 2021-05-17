@@ -12,7 +12,7 @@
     </test> <!-- Test -->
     <test name="test 2">
         <classes>
-            <class name="tests.EntriesTest"/>
+            <class name="tests.FunctionalTest"/>
             <class name="tests.LoginTest"/>
         </classes>
     </test> <!-- Test -->

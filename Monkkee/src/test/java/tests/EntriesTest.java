@@ -5,22 +5,28 @@ import org.testng.annotations.Test;
 public class EntriesTest extends BaseTest {
 
     @Test(description = "Adding a new entry")
-    public void addEntries() {
+    public void addNewEntries() {
         loginPage
                 .open()
-                .login("testUser@mailinator.com", "Password123")
+                .login(getLogin(), getPassword())
                 .addNewEntry("Hello World!");
     }
 
-    //@Test(description = "Delete entry")
-    //public void deleteEntries() {
-    //   addEntries();
-    //    entriesPage.deleteEntry();
-    //}
+    @Test(description = "Delete entry")
+    public void deleteEntries() {
+        loginPage
+                .open()
+                .login(getLogin(), getPassword())
+                .addNewEntry("Hello World!")
+                .deleteEntry();
+    }
 
     @Test(description = "Updating an existing record by adding a new proposal")
     public void updateEntry() {
-        addEntries();
-        entriesPage.addToExistingEntry(" Hi Misha");
+        loginPage
+                .open()
+                .login(getLogin(), getPassword())
+                .addNewEntry("Hello World!")
+                .addToExistingEntry(" Hi Misha");
     }
 }

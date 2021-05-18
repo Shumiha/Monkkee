@@ -13,17 +13,18 @@ import pages.EntriesPage;
 import pages.LoginPage;
 import pages.ModalPage;
 import utils.TestListener;
+
 import java.util.concurrent.TimeUnit;
 
-@Data
+//@Data
 @Listeners(TestListener.class)
 public abstract class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     EntriesPage entriesPage;
     ModalPage modalPage;
-    private String login = "testUser@mailinator.com";
-    private String password = "Password123";
+    //private String login = "testUser@mailinator.com";
+    //private String password = "Password123";
 
     @BeforeMethod(description = "Opening browser")
     public void setup(ITestContext context) {

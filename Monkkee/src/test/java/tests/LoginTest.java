@@ -8,7 +8,7 @@ public class LoginTest extends BaseTest {
     public void correctDataFilling() {
         loginPage
                 .open()
-                .login(getLogin(), getPassword());
+                .login(loginPage.getLogin(), loginPage.getPassword());
         loginPage.checkPageOpened();
     }
 

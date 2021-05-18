@@ -21,7 +21,7 @@ public abstract class BasePage {
     }
 
     public void closingThePopup() {
-        try{
+        try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(MODAL_CONTENT));
         } catch (TimeoutException exception) {
             driver.findElement(CANCEL_BUTTON).click();

@@ -8,7 +8,23 @@ public class LoginTest extends BaseTest {
     public void correctDataFilling() {
         loginPage
                 .open()
-                .login("testUser@mailinator.com", "Password123");
+                .login(getLogin(), getPassword());
         loginPage.checkPageOpened();
+    }
+
+    @Test(description = "Empty login and password")
+    public void emptyData() {
+        loginPage
+                .open()
+                .login("", "");
+        loginPage.checkingAnEmptyField();
+    }
+
+    @Test(description = "Incorrect data")
+    public void incorrectData() {
+        loginPage
+                .open()
+                .login("usertest@mailinator.com", "Password");
+        loginPage.invalidDataCheck();
     }
 }

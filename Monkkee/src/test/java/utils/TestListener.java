@@ -33,7 +33,6 @@ public class TestListener implements ITestListener {
         takeScreenshot(iTestResult);
     }
 
-    //TODO НЕ РАБОТАЮТ СКРИНШОТЫ
     @Attachment(value = "Last screen state", type = "image/png")
     private byte[] takeScreenshot(ITestResult iTestResult) {
         ITestContext context = iTestResult.getTestContext();

@@ -8,7 +8,7 @@ public class EntriesTest extends BaseTest {
     public void addNewEntries() {
         loginPage
                 .open()
-                .login(getLogin(), getPassword())
+                .login(loginPage.getLogin(), loginPage.getPassword())
                 .addNewEntry("Hello World!");
     }
 
@@ -16,7 +16,7 @@ public class EntriesTest extends BaseTest {
     public void deleteEntries() {
         loginPage
                 .open()
-                .login(getLogin(), getPassword())
+                .login(loginPage.getLogin(), loginPage.getPassword())
                 .addNewEntry("Hello World!")
                 .deleteEntry();
     }
@@ -25,8 +25,7 @@ public class EntriesTest extends BaseTest {
     public void updateEntry() {
         loginPage
                 .open()
-                .login(getLogin(), getPassword())
-                .addNewEntry("Hello World!")
+                .login(loginPage.getLogin(), loginPage.getPassword())
                 .addToExistingEntry(" Hi Misha");
     }
 }

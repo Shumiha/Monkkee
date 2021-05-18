@@ -5,11 +5,10 @@ import org.testng.annotations.Test;
 public class FunctionalTest extends BaseTest {
 
     @Test
-    public void tagAssignment () {
+    public void tagAssignment() {
         loginPage
                 .open()
-                .login(getLogin(),getPassword())
-                .addNewEntry("add tag");
+                .login(loginPage.getLogin(), loginPage.getPassword());
         modalPage.addTag("test tag");
     }
 
@@ -17,8 +16,7 @@ public class FunctionalTest extends BaseTest {
     public void deleteTag() {
         loginPage
                 .open()
-                .login(getLogin(),getPassword())
-                .addNewEntry("add tag");
+                .login(loginPage.getLogin(), loginPage.getPassword());
         modalPage.addTag("test tag");
         modalPage.deleteTag();
     }

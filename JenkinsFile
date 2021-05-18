@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: "${params.BRANCH}", url: 'https://github.com/Shumiha/Saucedemo.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/Shumiha/Monkkee.git'
 
                 // To run Maven on a Windows agent, use
                 bat "mvn -Dmaven.test.failure.ignore=true clean package"

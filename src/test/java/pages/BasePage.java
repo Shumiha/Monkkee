@@ -29,9 +29,4 @@ public abstract class BasePage {
             log.info("Popup appeared");
         }
     }
-
-    public void checkForSiteOverload() {
-
-    }
-
 }

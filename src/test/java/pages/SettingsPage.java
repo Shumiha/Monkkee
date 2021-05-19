@@ -37,7 +37,7 @@ public class SettingsPage extends BasePage {
         Select languageFrench = new Select(driver.findElement(LANGUAGE_DROPDOWN));
         languageFrench.selectByIndex(2);
         driver.findElement(SAVE_BUTTON).click();
-        Assert.assertEquals(driver.findElement(LABEL_VALIDATION).getText(), "Modifications enregistrées",
+        Assert.assertTrue(driver.findElement(LABEL_VALIDATION).isDisplayed(),
                 "Error when changing language");
         Select languageEnglish = new Select(driver.findElement(LANGUAGE_DROPDOWN));
         languageEnglish.selectByIndex(1);

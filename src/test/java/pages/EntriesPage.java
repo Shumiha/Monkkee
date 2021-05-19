@@ -15,7 +15,7 @@ public class EntriesPage extends BasePage {
     public static final By EDITABLE = By.id("editable");
     public static final By EDITOR_TOOLBARS = By.cssSelector(".cke_top");
     public static final By SAVE_BUTTON = By.cssSelector(".cke_button__savetoggle");
-    public static final By NUMBER_OF_RECORDS = By.cssSelector("input[ng-model='model.checked[entry.id]']");
+    public static final By CHECKBOX_ENTRY = By.cssSelector("input[ng-model='model.checked[entry.id]']");
     public static final By DATE_ENTRY = By.cssSelector(".calendar-date");
 
     public EntriesPage(WebDriver driver) {
@@ -24,6 +24,7 @@ public class EntriesPage extends BasePage {
 
     @Step("Adding a new entry")
     public EntriesPage addNewEntry(String text) {
+        numberEntry++;
         driver.findElement(CREATE_BUTTON).click();
         closingThePopup();
         try {
@@ -45,13 +46,14 @@ public class EntriesPage extends BasePage {
 
     @Step("Delete entry")
     public EntriesPage deleteEntry() {
-        List<WebElement> elems = driver.findElements(NUMBER_OF_RECORDS);
+        numberEntry--;
+        List<WebElement> elems = driver.findElements(CHECKBOX_ENTRY);
         elems.get(0).click();
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(DELETE_BUTTON));
         } catch (TimeoutException ex) {
             Assert.fail("No entry for deletion selected");
-            log.error("Maybe there are no records, you need to check their presence");
+            log.error("No records found");
         }
         driver.findElement(DELETE_BUTTON).click();
         Alert alert = driver.switchTo().alert();
@@ -76,7 +78,7 @@ public class EntriesPage extends BasePage {
             Assert.assertEquals(driver.findElement(ENTRY).getText(), textEntry, "Record not updated");
         } catch (TimeoutException ex) {
             Assert.fail("Record not updated");
-            log.error("Maybe there are no records, you need to check their presence");
+            log.error("Record not updated");
         }
         return new EntriesPage(driver);
     }

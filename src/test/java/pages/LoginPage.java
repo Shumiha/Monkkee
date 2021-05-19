@@ -21,7 +21,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @Step("Page loading 'Mymonkkee'")
+    @Step("Page loading 'My Monkkee'")
     public LoginPage open() {
         driver.get("https://my.monkkee.com/");
         return new LoginPage(driver);

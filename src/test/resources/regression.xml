@@ -13,7 +13,7 @@
     <test name="test 2">
         <classes>
             <class name="tests.EntriesTest"/>
-            <class name="tests.LoginTest"/>
+            <class name="tests.SettingsTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>

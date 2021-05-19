@@ -10,8 +10,9 @@ public abstract class BasePage {
     public static final By MODAL_CONTENT = By.cssSelector(".modal-content");
     public static final By CANCEL_BUTTON = By.xpath("//*[text()='Cancel']");
     public static final By CREATE_BUTTON = By.id("create-entry");
-    public static final By ENTRY = By.cssSelector("div[ng-bind-html='entry.body']");
+    public static final By ENTRY = By.cssSelector(".body ");//("div[ng-bind-html='entry.body']");
     public static final By BUTTON_HOME = By.cssSelector(".icon-home");
+    int numberEntry = 1;
     WebDriver driver;
     WebDriverWait wait;
 

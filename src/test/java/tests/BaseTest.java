@@ -1,7 +1,6 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,19 +11,18 @@ import org.testng.annotations.Listeners;
 import pages.EntriesPage;
 import pages.LoginPage;
 import pages.ModalPage;
+import pages.SettingsPage;
 import utils.TestListener;
 
 import java.util.concurrent.TimeUnit;
 
-//@Data
 @Listeners(TestListener.class)
 public abstract class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     EntriesPage entriesPage;
     ModalPage modalPage;
-    //private String login = "testUser@mailinator.com";
-    //private String password = "Password123";
+    SettingsPage settingsPage;
 
     @BeforeMethod(description = "Opening browser")
     public void setup(ITestContext context) {
@@ -38,6 +36,7 @@ public abstract class BaseTest {
         loginPage = new LoginPage(driver);
         entriesPage = new EntriesPage(driver);
         modalPage = new ModalPage(driver);
+        settingsPage = new SettingsPage(driver);
         context.setAttribute("driver", driver);
     }
 
